@@ -14,11 +14,7 @@ for series in json_data['Results']['series']:
         year = item['year']
         period = item['period']
         value = item['value']
-        #footnotes=""
-        #for footnote in item['footnotes']:
-        #    if footnote:
-                #footnotes = footnotes + footnote['text'] + ','
-
+    
         x.add_row([seriesId,year,period,value])
 
     output = open(seriesId + '.txt','w') #export as .csv or .txt file; switch as necessary
