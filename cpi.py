@@ -13,9 +13,9 @@ for series in json_data['Results']['series']:
         period = item['period']
         value = item['value']
 
-        x.add_row([seriesId,year,period,value])      
+        x.add_row([seriesId,year,period,value])
 
-    output = open(seriesId + '.txt','w') #export as .csv or .txt file
-    output.write (x.get_string())
-    output.close()
-    print(x)
+output = open(seriesId + '.txt','w') #export as .csv or .txt file
+output.write (x.get_string())
+output.close()
+print(x)

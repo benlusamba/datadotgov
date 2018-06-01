@@ -3,6 +3,8 @@
 import requests                                           # Import the relevant modules
 import json
 import prettytable
+import csv
+
 headers = {'Content-type': 'application/json'}
 data = json.dumps({"seriesid": ['LNS14000000'],"startyear":"2009", "endyear":"2018"})
 p = requests.post('https://api.bls.gov/publicAPI/v2/timeseries/data/', data=data, headers=headers)
@@ -14,7 +16,7 @@ for series in json_data['Results']['series']:
         year = item['year']
         period = item['period']
         value = item['value']
-    
+
         x.add_row([seriesId,year,period,value])
 
     output = open(seriesId + '.txt','w') #export as .csv or .txt file; switch as necessary
